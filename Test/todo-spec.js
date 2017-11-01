@@ -3,7 +3,7 @@ var elements = mainpage.getElements();
 var until = protractor.ExpectedConditions;
 
 
-describe('angularjs homepage todo list', function() {
+describe('### Current SessionID\n', function() {
 
     beforeEach(function(done) {
         browser.ignoreSynchronization = true;
@@ -26,9 +26,10 @@ describe('angularjs homepage todo list', function() {
         //FamilySearch Home — FamilySearch.org
     browser.wait(until.presenceOf(elements.signIn), 40000, 'SignIn not there').then(function() {
         elements.signIn.click().then(function() {
-            browser.sleep(10000);
-            browser.getTitle().then(function(title) {
-                console.log(title);
+            browser.sleep(18000).then(function () {
+                browser.getTitle().then(function(title) {
+                    console.log(title);
+                });
             });
         });
 
@@ -40,8 +41,8 @@ describe('angularjs homepage todo list', function() {
 
     });
 
-    xit('should keep session alive', function() {
-
+    it('should keep session alive', function() {
+        console.log('this is a test');
     });
 
     //browser.sleep(1000);
