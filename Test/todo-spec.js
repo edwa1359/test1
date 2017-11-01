@@ -23,16 +23,20 @@ describe('angularjs homepage todo list', function() {
         //Free Family History and Genealogy Records — FamilySearch.org
 
         //after login
-    browser.wait(until.presenceOf(elements.signIn), 10000, 'not there').then(function() {
-        elements.signIn.click();
-        browser.sleep(10000);
-    });
-    browser.sleep(5000).then(function() {
-        browser.getTitle().then(function(title) {
-            console.log(title);
+        //FamilySearch Home — FamilySearch.org
+    browser.wait(until.presenceOf(elements.signIn), 40000, 'SignIn not there').then(function() {
+        elements.signIn.click().then(function() {
+            browser.sleep(10000);
+            browser.getTitle().then(function(title) {
+                console.log(title);
+            });
         });
-    });
 
+    });
+    // browser.sleep(5000).then(function() {
+    //     browser.getTitle().then(function(title) {
+    //         console.log(title);
+    //     });
 
     });
 
