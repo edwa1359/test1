@@ -21,7 +21,8 @@
 // };
 
 var elements = {
-    signIn:                     element(by.css('sign-in-link fs-button fs-button--small fs-button--minor')),
+    signIn:                     element(by.css('[class^="sign-in-link"]')),
+
     contactCard:              element(by.css('[data-dialog-key="fs:contactCard"]')),
     contactCardCancel:        element(by.css('[data-dialog-key="fs:contactCard"] #cancel-button')),
     contactCardReady:         element(by.css('[data-dialog-key="fs:contactCard"][aria-busy="false"]')),

@@ -1,25 +1,46 @@
-var mainpage = require('mainpage.js');
+var mainpage = require('./mainpage.js');
 var elements = mainpage.getElements();
+var until = protractor.ExpectedConditions;
 
 
 describe('angularjs homepage todo list', function() {
+
     beforeEach(function(done) {
         browser.ignoreSynchronization = true;
+        done();
     });
 
-    xit('should have a title', function() {
-        browser.get('http://juliemr.github.io/protractor-demo/');
+    // xit('should have a title', function() {
+    //     browser.get('http://juliemr.github.io/protractor-demo/');
+    //
+    //     expect(browser.getTitle()).toEqual('Super Calculator');
+    // });
 
-        expect(browser.getTitle()).toEqual('Super Calculator');
+    it('should open web page', function() {
+        browser.get('https://www.familysearch.org');
+    //browser.pause();
+        //before login
+        //Free Family History and Genealogy Records — FamilySearch.org
+
+        //after login
+    browser.wait(until.presenceOf(elements.signIn), 10000, 'not there').then(function() {
+        elements.signIn.click();
+        browser.sleep(10000);
+    });
+    browser.sleep(5000).then(function() {
+        browser.getTitle().then(function(title) {
+            console.log(title);
+        });
     });
 
-  it('should add a todo', function() {
-    browser.get('https://www.familysearch.org/');
 
-    browser.sleep(10000);
+    });
 
+    xit('should keep session alive', function() {
 
+    });
 
+    //browser.sleep(1000);
     // element(by.id('lst-ib')).sendKeys('Ed Walters');
     // element(by.id('lst-ib"]')).click();
 
@@ -33,5 +54,5 @@ describe('angularjs homepage todo list', function() {
     todoList.get(2).element(by.css('input')).click();
     var completedAmount = element.all(by.css('.done-true'));
     expect(completedAmount.count()).toEqual(2);*/
-  });
+
 });
