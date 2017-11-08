@@ -8,17 +8,35 @@
 //     element.sendKeys(keys);
 // };
 
-// function refresh() {
-//     var dfd = protractor.promise.defer();
-//     browser.refresh();
-//     utils.waitForElementNotVisible(elements.spinner).then(function () {
-//         utils.waitForElement(elements.messageCountRead).then(function() {
-//             dfd.fulfill();
-// //            browser.sleep(100);
-//         });
-//     });
-//     return dfd.promise;
-// };
+var until = protractor.ExpectedConditions;
+
+
+function waitForElement(elementToFind) {
+    var dfd = protractor.promise.defer();
+    browser.wait(until.presenceOf(elementToFind), 40000, 'Element not present').then(function() {
+        dfd.fulfill();
+    });
+    return dfd.promise;
+}
+
+function waitForElementNotVisible(elementToFind) {
+    var dfd = protractor.promise.defer();
+    browser.wait(until.invisibilityOf(elementToFind), 40000, 'Element visible').then(function() {
+        dfd.fulfill();
+    });
+    return dfd.promise;
+}
+
+function refresh() {
+    var dfd = protractor.promise.defer();
+    browser.refresh();
+    waitForElementNotVisible(elements.spinner).then(function () {
+        expect(elements.displayName.getText()).toMatch('Edward A Walters');
+        dfd.fulfill();
+//            browser.sleep(100);
+    });
+    return dfd.promise;
+}
 
 var elements = {
     signIn:                     element(by.css('[class^="sign-in-link"]')),
@@ -69,80 +87,68 @@ module.exports =  {
         return elements;
     },
 
-    // deleteThread: function() {
-    //     var dfd = protractor.promise.defer();
-    //     utils.click(elements.deleteThreadButton);
-    //     utils.waitForElementVisible(elements.deleteDialogOpened).then(function()    {
-    //         browser.sleep(400); // Animation is 300ms
-    //         utils.waitForElementVisible(elements.deleteDialogYesButton).then(function() {
-    //             utils.click(elements.deleteDialogYesButton);
-    //             utils.waitForElementNotVisible(elements.spinner).then(function () {
-    //                 dfd.fulfill();
-    //             });
-    //         });
-    //     });
-    //     return dfd.promise;
-    // },
-
     refresh: function() {
         var dfd = protractor.promise.defer();
         refresh().then(function () {
             dfd.fulfill();
         });
         return dfd.promise;
-    }
+    },
 
-    // sendReply: function(message) {
-    //     utils.waitForElementVisible(elements.lastMessageBody).then(function () {
-    //         sendKeys(elements.sendTextarea, message);
-    //         utils.waitForElementVisible(elements.sendButton).then(function () {
-    //             utils.click(elements.sendButton);
-    //             utils.waitForElementNotVisible(elements.spinner).then(function () {
-    //                 utils.waitForElementNotClickable(elements.sendButton);
-    //             });
-    //         });
-    //     });
+    // getCookie: function (name) {
+    //     return browser.manage().getCookie(name);
     // },
     //
-    // hijackSession: function(userObj) {
-    //     var cb = new Date().valueOf();
-    //     var hijackUrl = env.rootUrl+'/messaging/mailbox/hijacksession?_='+cb+'&fssessionid='+userObj.fsSessionId;
-    //     browser.ignoreSynchronization = true;
-    //     browser.sleep(100);
-    //     browser.get(hijackUrl).then (function () {
-    //         utils.waitForElementNotVisible(elements.spinner).then(function () {
-    //             browser.getPageSource().then(function(html) {
-    //                 expect(html).toContain(userObj.displayName);
-    //             });
-    //         });
-    //     });
+    // getSessionId: function () {
+    //     return this.getCookie('fssessionid'.getValue());
     // },
     //
-    // waitForMessagesVisible: function(cnt) {
-    //     var dfd = protractor.promise.defer();
-    //     var loop = 0;
-    //     function doCheck() {
-    //         utils.waitForElementVisible(elements.sendTextarea).then(function() {
-    //             elements.messageCountRead.getText().then(function(amt) {
-    //                 elements.messageCountUnread.getText().then(function(amtUnread) {
-    //                     amt = parseInt(amt);
-    //                     amtUnread = parseInt(amtUnread);
-    //                     amt += amtUnread;
-    //                     if(amt !== cnt && loop < 3 || loop < 1) {
-    //                         browser.sleep(500);
-    //                         loop ++;
-    //                         doCheck();
-    //                     }
-    //                     else {
-    //                         console.log("Waited until messages were: " + amt);
-    //                         console.log("Looped times: " + (loop + 1));
-    //                         dfd.fulfill(amt);
-    //                     }
-    //                 });
-    //             });
-    //         });
-    //     }
-    //     doCheck();
-    //     return dfd.promise;
-    // }
+    keepAliveLoop: function () {
+        var dfd = protractor.promise.defer();
+        function doLoop(idx) {
+            if(idx < 2){ // set this to the number of minutes you want it to stay alive
+                browser.sleep(60000);
+                console.log("loop times: " + (idx + 1));
+                refresh().then(function () {
+                    doLoop(idx + 1);
+                });
+            }
+            else {
+                dfd.fulfill();
+            }
+        }
+        doLoop(0);
+        return dfd.promise;
+    },
+
+    getSessionId:function () {
+        function readCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function copyToClipboard(text) {
+            document.body.innerText = text;
+            var range = document.createRange();
+            range.selectNode(document.body);
+            window.getSelection().addRange(range);
+            try {
+                var successful = document.execCommand('copy');
+                var msg = successful ? 'successful' : 'unsuccessful';
+                console.log('Copy email command was ' + msg);
+            }
+            catch(err) {
+                console.log('Oops, unable to copy');
+            }
+            window.getSelection().removeAllRanges();
+        }
+        copyToClipboard(readCookie('fssessionid')); //added the ;
+    }//();
+
 };

@@ -1,63 +1,55 @@
 var mainpage = require('./mainpage.js');
 var elements = mainpage.getElements();
 var until = protractor.ExpectedConditions;
+jasmine.DEFAULT_TIMEOUT_INTERVAL = 90000;
 
 
 describe('### Current SessionID\n', function() {
+
 
     beforeEach(function(done) {
         browser.ignoreSynchronization = true;
         done();
     });
 
-    // xit('should have a title', function() {
-    //     browser.get('http://juliemr.github.io/protractor-demo/');
-    //
-    //     expect(browser.getTitle()).toEqual('Super Calculator');
-    // });
-
     it('should open web page', function() {
+//        var displayNameText;
         browser.get('https://www.familysearch.org');
-    //browser.pause();
-        //before login
+        //browser.pause();
+        //Title before login
         //Free Family History and Genealogy Records — FamilySearch.org
 
-        //after login
+        //Title after login
         //FamilySearch Home — FamilySearch.org
-    browser.wait(until.presenceOf(elements.signIn), 40000, 'SignIn not there').then(function() {
-        elements.signIn.click().then(function() {
-            browser.sleep(18000).then(function () {
-                browser.getTitle().then(function(title) {
-                    console.log(title);
+        browser.wait(until.presenceOf(elements.signIn), 40000, 'SignIn not there').then(function() {
+            elements.signIn.click().then(function() {
+                browser.sleep(18000).then(function () {
+                    browser.getTitle().then(function(title) {
+                        elements.displayName.getText().then(function (displayNameText) {
+                            console.log(displayNameText);
+                        });
+                        expect(elements.displayName.getText()).toMatch('Edward A Walters');
+                        console.log(title);
+                    });
                 });
             });
+
         });
-
-    });
-    // browser.sleep(5000).then(function() {
-    //     browser.getTitle().then(function(title) {
-    //         console.log(title);
-    //     });
-
     });
 
     it('should keep session alive', function() {
+//        jasmine.DEFAULT_TIMEOUT_INTERVAL = 3600000; //3600000 = one hour
+//        mainpage.getSessionId();
+//        console.log('SessionID: ' + mainpage.getSessionId());
+        var nameEQ = "fssessionid" + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) console.log(c.substring(nameEQ.length,c.length));
+        }
         console.log('this is a test');
-    });
-
-    //browser.sleep(1000);
-    // element(by.id('lst-ib')).sendKeys('Ed Walters');
-    // element(by.id('lst-ib"]')).click();
-
-
-
-   /* var todoList = element.all(by.repeater('todo in todoList.todos'));
-    expect(todoList.count()).toEqual(3);
-    expect(todoList.get(2).getText()).toEqual('write first protractor test');
-
-    // You wrote your first test, cross it off the list
-    todoList.get(2).element(by.css('input')).click();
-    var completedAmount = element.all(by.css('.done-true'));
-    expect(completedAmount.count()).toEqual(2);*/
+        mainpage.keepAliveLoop();
+    }, 3600000);
 
 });
