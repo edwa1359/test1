@@ -122,33 +122,38 @@ module.exports =  {
     },
 
     getSessionId:function () {
-        function readCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for (var i = 0; i < ca.length; i++) {
-                var c = ca[i];
-                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        var dfd = protractor.promise.defer();
+        browser.executeScript(function () {
+            function readCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
             }
-            return null;
-        }
-
-        function copyToClipboard(text) {
-            document.body.innerText = text;
-            var range = document.createRange();
-            range.selectNode(document.body);
-            window.getSelection().addRange(range);
-            try {
-                var successful = document.execCommand('copy');
-                var msg = successful ? 'successful' : 'unsuccessful';
-                console.log('Copy email command was ' + msg);
+            function copyToClipboard(text) {
+                document.body.innerText = text;
+                var range = document.createRange();
+                range.selectNode(document.body);
+                window.getSelection().addRange(range);
+                try {
+                    var successful = document.execCommand('copy');
+                    var msg = successful ? 'successful' : 'unsuccessful';
+                    // console.log('Copy email command was ' + msg);
+                    // console.log("SessionId: " + text);
+                }
+                catch(err) {
+                    console.log('Oops, unable to copy');
+                }
+                window.getSelection().removeAllRanges();
             }
-            catch(err) {
-                console.log('Oops, unable to copy');
-            }
-            window.getSelection().removeAllRanges();
-        }
-        copyToClipboard(readCookie('fssessionid')); //added the ;
-    }//();
+            copyToClipboard(readCookie('fssessionid'));
+            dfd.fulfill();
+            return dfd.promise;
+        });
+    }
 
 };
