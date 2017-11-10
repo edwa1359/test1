@@ -95,14 +95,6 @@ module.exports =  {
         return dfd.promise;
     },
 
-    // getCookie: function (name) {
-    //     return browser.manage().getCookie(name);
-    // },
-    //
-    // getSessionId: function () {
-    //     return this.getCookie('fssessionid'.getValue());
-    // },
-    //
     keepAliveLoop: function () {
         var dfd = protractor.promise.defer();
         function doLoop(idx) {
@@ -151,9 +143,10 @@ module.exports =  {
                 window.getSelection().removeAllRanges();
             }
             copyToClipboard(readCookie('fssessionid'));
-            dfd.fulfill();
-            return dfd.promise;
         });
+        dfd.fulfill();
+        return dfd.promise;
+
     }
 
 };

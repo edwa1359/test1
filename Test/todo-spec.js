@@ -1,18 +1,18 @@
 var mainpage = require('./mainpage.js');
+process.env.JOB_NAME = "Test1";
 var elements = mainpage.getElements();
 var until = protractor.ExpectedConditions;
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 90000;
 
 
-describe('### Current SessionID\n', function() {
-
+describe("### Current SessionID\n", function() {
 
     beforeEach(function(done) {
         browser.ignoreSynchronization = true;
         done();
     });
 
-    it('should open web page', function() {
+    it("should open web page", function(done) {
 //        var displayNameText;
         browser.get('https://www.familysearch.org');
         //browser.pause();
@@ -28,14 +28,16 @@ describe('### Current SessionID\n', function() {
                     });
                 });
             });
-
         });
+        done();
     });
 
-    it('should keep session alive', function() {
+    it("should keep session alive", function() {
 //        jasmine.DEFAULT_TIMEOUT_INTERVAL = 3600000; //3600000 = one hour
-        mainpage.getSessionId();
-        mainpage.keepAliveLoop();
+        mainpage.getSessionId().then(function () {
+            mainpage.keepAliveLoop();
+        });
+
     }, 3600000);
 
 });
