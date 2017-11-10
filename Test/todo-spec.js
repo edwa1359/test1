@@ -14,7 +14,7 @@ describe("### Current SessionID\n", function() {
 
     it("should open web page", function(done) {
 //        var displayNameText;
-        browser.get('https://www.familysearch.org');
+        browser.get('https://beta.familysearch.org');
         //browser.pause();
         browser.wait(until.presenceOf(elements.signIn), 40000, 'SignIn not there').then(function() {
             elements.signIn.click().then(function() {
@@ -23,7 +23,7 @@ describe("### Current SessionID\n", function() {
                         elements.displayName.getText().then(function (displayNameText) {
                             console.log(displayNameText);
                         });
-                        expect(elements.displayName.getText()).toMatch('Edward A Walters');
+//                        expect(elements.displayName.getText()).toMatch('Edward A Walters');
                         console.log(title);
                     });
                 });
