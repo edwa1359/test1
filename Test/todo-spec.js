@@ -19,14 +19,14 @@ describe("### Current SessionID\n", function() {
         browser.wait(until.presenceOf(elements.signIn), 40000, 'SignIn not there').then(function() {
             elements.signIn.click().then(function() {
                 browser.sleep(18000).then(function () {
-                    browser.getTitle().then(function(title) {
-                        elements.displayName.getText().then(function (displayNameText) {
-                            console.log(displayNameText);
-                        });
-//                        expect(elements.displayName.getText()).toMatch('Edward A Walters');
-                        console.log(title);
-                    });
-                });
+//                     browser.getTitle().then(function(title) {
+//                         elements.displayName.getText().then(function (displayNameText) {
+//                             console.log(displayNameText);
+//                         });
+//                         expect(elements.displayName.getText()).toMatch('Edward A Walters');
+//                         console.log(title);
+//                     });
+//                 });
             });
         });
         done();
