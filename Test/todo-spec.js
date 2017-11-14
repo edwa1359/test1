@@ -4,6 +4,7 @@ var elements = mainpage.getElements();
 var until = protractor.ExpectedConditions;
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 90000;
 
+env = 'beta';  // dev, beta, prod
 
 describe("### Current SessionID\n", function() {
 
@@ -12,13 +13,25 @@ describe("### Current SessionID\n", function() {
         done();
     });
 
+    it("should set env", function () {
+       if(env === 'dev'){
+           env = 'https://integration.familysearch.org';
+       }
+       else if(env === 'beta') {
+           env = 'https://beta.familysearch.org';
+       }
+       else {
+           env = 'https://familysearch.org';
+       }
+    });
+
     it("should open web page", function(done) {
 //        var displayNameText;
-        browser.get('https://beta.familysearch.org');
+        browser.get(env);
         //browser.pause();
         browser.wait(until.presenceOf(elements.signIn), 40000, 'SignIn not there').then(function() {
             elements.signIn.click().then(function() {
-                browser.sleep(18000).then(function () {
+                browser.sleep(18000);//.then(function () {
 //                     browser.getTitle().then(function(title) {
 //                         elements.displayName.getText().then(function (displayNameText) {
 //                             console.log(displayNameText);
@@ -27,6 +40,7 @@ describe("### Current SessionID\n", function() {
 //                         console.log(title);
 //                     });
 //                 });
+                console.log("\n" + env);
             });
         });
         done();
@@ -35,6 +49,7 @@ describe("### Current SessionID\n", function() {
     it("should keep session alive", function() {
 //        jasmine.DEFAULT_TIMEOUT_INTERVAL = 3600000; //3600000 = one hour
         mainpage.getSessionId().then(function () {
+//            console.log(session);
             mainpage.keepAliveLoop();
         });
 

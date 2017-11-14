@@ -31,7 +31,7 @@ function refresh() {
     var dfd = protractor.promise.defer();
     browser.refresh();
     waitForElementNotVisible(elements.spinner).then(function () {
-        expect(elements.displayName.getText()).toMatch('Edward A Walters');
+//        expect(elements.displayName.getText()).toMatch('Edward A Walters');
         dfd.fulfill();
 //            browser.sleep(100);
     });
@@ -87,13 +87,13 @@ module.exports =  {
         return elements;
     },
 
-    refresh: function() {
-        var dfd = protractor.promise.defer();
-        refresh().then(function () {
-            dfd.fulfill();
-        });
-        return dfd.promise;
-    },
+    // refresh: function() {
+    //     var dfd = protractor.promise.defer();
+    //     refresh().then(function () {
+    //         dfd.fulfill();
+    //     });
+    //     return dfd.promise;
+    // },
 
     keepAliveLoop: function () {
         var dfd = protractor.promise.defer();
@@ -146,7 +146,6 @@ module.exports =  {
         });
         dfd.fulfill();
         return dfd.promise;
-
     }
 
 };
