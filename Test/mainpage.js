@@ -95,11 +95,11 @@ module.exports =  {
     //     return dfd.promise;
     // },
 
-    keepAliveLoop: function () {
+    keepAliveLoop: function (amt) {
         var dfd = protractor.promise.defer();
         function doLoop(idx) {
-            if(idx < 2){ // set this to the number of minutes you want it to stay alive
-                browser.sleep(60000);
+            if(idx < amt){ // set this to the number of minutes you want it to stay alive
+                browser.sleep(600000);
                 console.log("loop times: " + (idx + 1));
                 refresh().then(function () {
                     doLoop(idx + 1);
@@ -134,8 +134,8 @@ module.exports =  {
                 try {
                     var successful = document.execCommand('copy');
                     var msg = successful ? 'successful' : 'unsuccessful';
-                    // console.log('Copy email command was ' + msg);
-                    // console.log("SessionId: " + text);
+                     console.log("Copy email command was " + msg);
+                     console.log("SessionId: " + range);
                 }
                 catch(err) {
                     console.log('Oops, unable to copy');

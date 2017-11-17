@@ -2,6 +2,7 @@ var mainpage = require('./mainpage.js');
 process.env.JOB_NAME = "Test1";
 var elements = mainpage.getElements();
 var until = protractor.ExpectedConditions;
+var loopTimes = 2; // number of 10 minute loops
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 90000;
 
 env = 'beta';  // dev, beta, prod
@@ -50,7 +51,7 @@ describe("### Current SessionID\n", function() {
 //        jasmine.DEFAULT_TIMEOUT_INTERVAL = 3600000; //3600000 = one hour
         mainpage.getSessionId().then(function () {
 //            console.log(session);
-            mainpage.keepAliveLoop();
+            mainpage.keepAliveLoop(loopTimes);
         });
 
     }, 3600000);
