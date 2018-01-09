@@ -2,7 +2,7 @@ var mainpage = require('./mainpage.js');
 process.env.JOB_NAME = "Test1";
 var elements = mainpage.getElements();
 var until = protractor.ExpectedConditions;
-var loopTimes = 2; // number of 10 minute loops
+var loopTimes = 4; // number of 15 minute loops
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 90000;
 
 env = 'beta';  // dev, beta, prod

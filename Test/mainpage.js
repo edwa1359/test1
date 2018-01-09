@@ -98,8 +98,8 @@ module.exports =  {
     keepAliveLoop: function (amt) {
         var dfd = protractor.promise.defer();
         function doLoop(idx) {
-            if(idx < amt){ // set this to the number of minutes you want it to stay alive
-                browser.sleep(600000);
+            if(idx < amt){ // set this to the number of 15 minute loops to stay alive
+                browser.sleep(900000); // 15 minutes
                 console.log("loop times: " + (idx + 1));
                 refresh().then(function () {
                     doLoop(idx + 1);
