@@ -54,6 +54,6 @@ describe("### Current SessionID\n", function() {
             mainpage.keepAliveLoop(loopTimes);
         });
 
-    }, 3600000);
+    }, 7200000);
 
 });
