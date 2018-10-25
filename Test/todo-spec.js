@@ -5,7 +5,7 @@ let elements = mainpage.getElements();
 let loopTimes = 8; // number of 15 minute loops
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 90000;
 
-let cookieName;
+let cookieName = 'fssessionid';
 let env = 'dev';  // dev, beta, prod
 
 describe("### Current SessionID\n", function () {
@@ -17,24 +17,22 @@ describe("### Current SessionID\n", function () {
 
     it("should set env", async function () {
         if (env === 'dev') {
-            env = 'https://integration.familysearch.org';
-            cookieName = 'fssessionid';
+            env = 'https://integration.familysearch.org/messaging/mailbox';
         }
         else if (env === 'beta') {
-            env = 'https://beta.familysearch.org';
-            cookieName = 'fssessionid';
+            env = 'https://beta.familysearch.org/messaging/mailbox';
         }
         else {
-            env = 'https://familysearch.org';
-            cookieName = 'fssessionid';
+            env = 'https://familysearch.org/messaging/mailbox';
         }
     });
 
     it("should open web page", async function () {
         await browser.get(env);
-        await mainpage.waitForElementClickable(elements.signIn);
-        await elements.signIn.click();
-        await browser.sleep(11000);
+        await mainpage.waitForElementClickable(elements.reportAbuseButton);
+//        await mainpage.waitForElementClickable(elements.signIn);
+//        await elements.signIn.click();
+//        await browser.sleep(15000);
         console.log("\n Environment: ", env);
     });
 

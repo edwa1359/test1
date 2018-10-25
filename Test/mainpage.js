@@ -16,6 +16,7 @@ async function refresh() {
 let elements = {
     signIn:                   element(by.css('[class^="sign-in-link"]')),
     displayName:              element(by.css('.user-menu [data-test="NavigationUserDisplayName"]')),
+    reportAbuseButton:        element(by.css('[data-test="reportAbuseButton"]')),
     spinner:                  element(by.css('[class="fsmb-mailbox__spinner"]')),
     userButton:               element(by.css('.signedin [data-test="NavigationUserDisplayName"]'))
 };
