@@ -61,7 +61,7 @@ module.exports = {
             s = ("0" + s).slice(-2);
         }
         let ms = d.getMilliseconds();
-        await console.log(text + ": " + h + ":" + m + ":" + s + ":" + ms);
+        console.log(text + ": " + h + ":" + m + ":" + s + ":" + ms);
     },
 
     waitForElementClickable: async function (elementToFind) {

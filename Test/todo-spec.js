@@ -35,19 +35,19 @@ describe("### Current SessionID\n", function () {
         await mainpage.waitForElementClickable(elements.signIn);
         await elements.signIn.click();
         await browser.sleep(11000);
-        await console.log("\n Environment: ", env);
+        console.log("\n Environment: ", env);
     });
 
     it("should keep session alive", async function () {
         let session;
         session = await mainpage.getSessionId(cookieName);
-        await console.log("\n");
-        await console.log(session);
-        await console.log("\n");
+        console.log("\n");
+        console.log(session);
+        console.log("\n");
         await mainpage.getTime("Start");
         await mainpage.keepAliveLoop(loopTimes);
         await mainpage.getTime("End");
-        await console.log("\n");
-    }, 7200000);
+        console.log("\n");
+    }, 7500000); //7500000 is 2 hours and 5 minutes
 
 });
