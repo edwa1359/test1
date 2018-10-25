@@ -18,7 +18,7 @@ describe("### Current SessionID\n", function () {
     it("should set env", async function () {
         if (env === 'dev') {
             env = 'https://integration.familysearch.org';
-            cookieName = 'familysearch-sessionid';
+            cookieName = 'fssessionid';
         }
         else if (env === 'beta') {
             env = 'https://beta.familysearch.org';
