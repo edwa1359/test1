@@ -18,17 +18,17 @@ let elements = {
     displayName:              element(by.css('.user-menu [data-test="NavigationUserDisplayName"]')),
     spinner:                  element(by.css('[class="fsmb-mailbox__spinner"]')),
     userButton:               element(by.css('.signedin [data-test="NavigationUserDisplayName"]'))
-}
+};
 
-module.exports =  {
-    getElements:  function() {
+module.exports = {
+    getElements: function () {
         return elements;
     },
 
     keepAliveLoop: async function (amt) {
         async function doLoop(idx) {
-            if(idx < amt){
-                await browser.sleep(30000); // 15 minutes = 900000
+            if (idx < amt) {
+                await browser.sleep(900000); // 15 minutes = 900000
                 console.log("loop times: " + (idx + 1));
                 await refresh();
                 await doLoop(idx + 1);
@@ -37,73 +37,36 @@ module.exports =  {
         await doLoop(0);
     },
 
-    getSessionId: async function () {
+    getSessionId: async function (cookieName) {
         let session, cookie;
-        cookie = await browser.manage().getCookie('familysearch-sessionid');
+//        cookie = await browser.manage().getCookies();
 //        console.log("cookie: ", cookie);
+        cookie = await browser.manage().getCookie(cookieName);
         session = cookie.value;
-//        console.log("sessionID: " + session);
-//        console.log(session);
         return session;
     },
 
-    getTime: async function(text) {
+    getTime: async function (text) {
         let d = new Date();
         let h = d.getHours();
-        if(h < 10){
+        if (h < 10) {
             h = ("0" + h).slice(-2);
         }
         let m = d.getMinutes();
-        if(m < 10){
+        if (m < 10) {
             m = ("0" + m).slice(-2);
         }
         let s = d.getSeconds();
-        if(s < 10) {
-            s= ("0" + s).slice(-2);
+        if (s < 10) {
+            s = ("0" + s).slice(-2);
         }
         let ms = d.getMilliseconds();
         await console.log(text + ": " + h + ":" + m + ":" + s + ":" + ms);
     },
 
-    waitForElementClickable: async function(elementToFind) {
-        return await browser.wait(until.elementToBeClickable(elementToFind), 40000,"Waited 40 seconds for element to be clickable");
+    waitForElementClickable: async function (elementToFind) {
+        return await browser.wait(until.elementToBeClickable(elementToFind), 40000, "Waited 40 seconds for element to be clickable");
     }
-
-
-//     getSessionId: async function () {
-//         let session;
-//         await browser.executeScript(async function () {
-//             async function readCookie(name) {
-//                 let nameEQ = name + "=";
-//                 let ca = document.cookie.split(';');
-//                 for (let i = 0; i < ca.length; i++) {
-//                     let c = ca[i];
-//                     while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-//                     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-//                 }
-// //                return null;
-//             }
-//             async function copyToClipboard(text) {
-//                 document.body.innerText = text;
-//                 let range = document.createRange();
-//                 await range.selectNode(document.body);
-//                 await window.getSelection().addRange(range);
-//                 try {
-//                     let successful = document.execCommand('copy');
-//                     let msg = successful ? 'successful' : 'unsuccessful';
-//                     console.log("Copy email command was " + msg);
-//                     console.log("SessionId: " + range);
-//                     session = range;
-//                 }
-//                 catch(err) {
-//                     console.log('Oops, unable to copy');
-//                 }
-//                 await window.getSelection().removeAllRanges();
-//             }
-//             await copyToClipboard(readCookie('fssessionid'));
-//         });
-//         return session;
-//     }
 
 };
 
