@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="830ca558-311f-45bf-96d0-5b4a682b24db" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Test/mainpage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/todo-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/Test/todo-spec.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,20 +15,21 @@
     <session id="1713258378">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="2068" />
+          <entry key="js" value="2073" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="2068" />
+          <entry key="JavaScript" value="2073" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -58,8 +58,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test/todo-spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="782">
-              <caret line="64" column="51" lean-forward="true" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
+            <state relative-caret-position="119">
+              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -67,7 +67,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/mainpage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="510">
               <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
@@ -129,10 +129,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-2192" />
-    <option name="y" value="-35" />
-    <option name="width" value="2035" />
-    <option name="height" value="1750" />
+    <option name="x" value="-1864" />
+    <option name="y" value="55" />
+    <option name="width" value="1709" />
+    <option name="height" value="1660" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -140,6 +140,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,9 +164,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -274,17 +274,12 @@
       <workItem from="1530109128374" duration="1275000" />
       <workItem from="1538588729128" duration="4518000" />
       <workItem from="1540404182883" duration="25051000" />
-      <workItem from="1540562470152" duration="4393000" />
+      <workItem from="1540562470152" duration="5111000" />
+      <workItem from="1540570918224" duration="642000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test1 - 2018.10.25 at 15h 37m 31s.xml">
-      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
-    </history-entry>
-    <history-entry file="Test1 - 2018.10.25 at 15h 38m 58s.xml">
-      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
-    </history-entry>
     <history-entry file="Test1 - 2018.10.25 at 15h 47m 02s.xml">
       <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
     </history-entry>
@@ -309,15 +304,20 @@
     <history-entry file="Test1 - 2018.10.26 at 09h 16m 26s.xml">
       <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
     </history-entry>
+    <history-entry file="Test1 - 2018.10.26 at 10h 22m 42s.xml">
+      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
+    </history-entry>
+    <history-entry file="Test1 - 2018.10.26 at 10h 25m 03s.xml">
+      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114953000" />
+    <option name="totallyTimeSpent" value="116313000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2521" y="-65" width="1628" height="1400" extended-state="0" />
-    <editor active="true" />
+    <frame x="-2259" y="7" width="1367" height="1328" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15369898" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18745218" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -326,12 +326,12 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329653" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32943144" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49936223" weight="0.22082019" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49936223" weight="0.23411371" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50063777" side_tool="true" weight="0.16876972" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Messages" order="10" />
@@ -373,7 +373,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Test/mainpage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
+        <state relative-caret-position="510">
           <caret line="32" column="49" selection-start-line="32" selection-start-column="49" selection-end-line="32" selection-end-column="49" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
@@ -383,8 +383,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Test/todo-spec.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="64" column="51" lean-forward="true" selection-start-line="64" selection-start-column="51" selection-end-line="64" selection-end-column="51" />
+        <state relative-caret-position="119">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
         </state>
       </provider>
     </entry>

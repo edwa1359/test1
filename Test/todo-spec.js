@@ -4,8 +4,10 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = 90000;
 
 let elements = mainpage.getElements();
 let page = 'familysearch.org/messaging/mailbox';
+
 let minPerLoop = 15; // should not be over 15
 let loopTimes = 16; // number of 15 minute loops, can't be greater than 16
+
 let loopTimes2 = 0;
 let cookieName = 'fssessionid';
 let env = 'dev';  // dev, beta, prod
