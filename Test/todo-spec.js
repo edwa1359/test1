@@ -1,10 +1,12 @@
 let mainpage = require('./mainpage.js');
 process.env.JOB_NAME = "Test1";
-let elements = mainpage.getElements();
-//let until = protractor.ExpectedConditions;
-let loopTimes = 8; // number of 15 minute loops
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 90000;
 
+let elements = mainpage.getElements();
+let page = 'familysearch.org/messaging/mailbox';
+let minPerLoop = 15; // should not be over 15
+let loopTimes = 16; // number of 15 minute loops, can't be greater than 16
+let loopTimes2 = 0;
 let cookieName = 'fssessionid';
 let env = 'dev';  // dev, beta, prod
 
@@ -17,35 +19,49 @@ describe("### Current SessionID\n", function () {
 
     it("should set env", async function () {
         if (env === 'dev') {
-            env = 'https://integration.familysearch.org/messaging/mailbox';
+            env = 'https://integration.' + page;
         }
         else if (env === 'beta') {
-            env = 'https://beta.familysearch.org/messaging/mailbox';
+            env = 'https://beta.' + page;
         }
         else {
-            env = 'https://familysearch.org/messaging/mailbox';
+            env = 'https://' + page;
         }
     });
 
     it("should open web page", async function () {
         await browser.get(env);
         await mainpage.waitForElementClickable(elements.reportAbuseButton);
-//        await mainpage.waitForElementClickable(elements.signIn);
-//        await elements.signIn.click();
-//        await browser.sleep(15000);
         console.log("\n Environment: ", env);
     });
 
-    it("should keep session alive", async function () {
+    it("should get session", async function () {
         let session;
+
         session = await mainpage.getSessionId(cookieName);
         console.log("\n");
         console.log(session);
+    });
+
+    it("should keep session alive", async function () {
+        if(loopTimes > 8) {
+            loopTimes2 = loopTimes - 8;
+            loopTimes = loopTimes - loopTimes2;
+        }
+
+        if (loopTimes2 >8) loopTimes2 = 8;
+
         console.log("\n");
         await mainpage.getTime("Start");
-        await mainpage.keepAliveLoop(loopTimes);
+        await mainpage.keepAliveLoop(loopTimes, minPerLoop);
+    }, 7500000); //7500000 is 2 hours and 5 minutes
+
+    it("should keep session alive stage 2", async function () {
+        if(loopTimes2 > 0) {
+            await mainpage.keepAliveLoop(loopTimes2);
+        }
+        console.log("Total times looped:", loopTimes + loopTimes2);
         await mainpage.getTime("End");
-        console.log("\n");
     }, 7500000); //7500000 is 2 hours and 5 minutes
 
 });

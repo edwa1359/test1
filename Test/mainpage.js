@@ -26,10 +26,11 @@ module.exports = {
         return elements;
     },
 
-    keepAliveLoop: async function (amt) {
+    keepAliveLoop: async function (amt, timeToSleep) {
+        timeToSleep = timeToSleep * 60000;
         async function doLoop(idx) {
             if (idx < amt) {
-                await browser.sleep(900000); // 15 minutes = 900000
+                await browser.sleep(timeToSleep);
                 console.log("loop times: " + (idx + 1));
                 await refresh();
                 await doLoop(idx + 1);
@@ -66,11 +67,12 @@ module.exports = {
     },
 
     waitForElementClickable: async function (elementToFind) {
-        return await browser.wait(until.elementToBeClickable(elementToFind), 40000, "Waited 40 seconds for element to be clickable");
+        return await browser.wait(until.elementToBeClickable(elementToFind), 60000, "Waited 60 seconds for element to be clickable");
     }
 
 };
 
+// This was the old way I did it
 
 // var until = protractor.ExpectedConditions;
 //
