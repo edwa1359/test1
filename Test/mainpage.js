@@ -13,6 +13,26 @@ async function refresh() {
     waitForElementNotVisible(elements.spinner);
 }
 
+async function getTime (text) {
+    let d = new Date();
+    let h = d.getHours();
+    if (h < 10) {
+        h = ("0" + h).slice(-2);
+    }
+    let m = d.getMinutes();
+    if (m < 10) {
+        m = ("0" + m).slice(-2);
+    }
+    let s = d.getSeconds();
+    if (s < 10) {
+        s = ("0" + s).slice(-2);
+    }
+    let ms = d.getMilliseconds();
+    console.log(text + ": " + h + ":" + m + ":" + s + ":" + ms);
+}
+
+
+
 let elements = {
     signIn:                   element(by.css('[class^="sign-in-link"]')),
     displayName:              element(by.css('.user-menu [data-test="NavigationUserDisplayName"]')),
@@ -32,6 +52,7 @@ module.exports = {
             if (idx < amt) {
                 await browser.sleep(timeToSleep);
                 console.log("loop times: " + (idx + 1));
+                console.log(getTime('current time: '));
                 await refresh();
                 await doLoop(idx + 1);
             }
@@ -49,21 +70,22 @@ module.exports = {
     },
 
     getTime: async function (text) {
-        let d = new Date();
-        let h = d.getHours();
-        if (h < 10) {
-            h = ("0" + h).slice(-2);
-        }
-        let m = d.getMinutes();
-        if (m < 10) {
-            m = ("0" + m).slice(-2);
-        }
-        let s = d.getSeconds();
-        if (s < 10) {
-            s = ("0" + s).slice(-2);
-        }
-        let ms = d.getMilliseconds();
-        console.log(text + ": " + h + ":" + m + ":" + s + ":" + ms);
+        await getTime(text);
+        // let d = new Date();
+        // let h = d.getHours();
+        // if (h < 10) {
+        //     h = ("0" + h).slice(-2);
+        // }
+        // let m = d.getMinutes();
+        // if (m < 10) {
+        //     m = ("0" + m).slice(-2);
+        // }
+        // let s = d.getSeconds();
+        // if (s < 10) {
+        //     s = ("0" + s).slice(-2);
+        // }
+        // let ms = d.getMilliseconds();
+        // console.log(text + ": " + h + ":" + m + ":" + s + ":" + ms);
     },
 
     waitForElementClickable: async function (elementToFind) {

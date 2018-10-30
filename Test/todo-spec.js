@@ -60,7 +60,7 @@ describe("### Current SessionID\n", function () {
 
     it("should keep session alive stage 2", async function () {
         if(loopTimes2 > 0) {
-            await mainpage.keepAliveLoop(loopTimes2);
+            await mainpage.keepAliveLoop(loopTimes2, minPerLoop);
         }
         console.log("Total times looped:", loopTimes + loopTimes2);
         await mainpage.getTime("End");
