@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="830ca558-311f-45bf-96d0-5b4a682b24db" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Test/mainpage.js" beforeDir="false" afterPath="$PROJECT_DIR$/Test/mainpage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/todo-spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/Test/todo-spec.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,18 +18,18 @@
           <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.10" value="2" />
-          <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.8" value="2" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="2256" />
+          <entry key="js" value="2301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="2256" />
+          <entry key="JavaScript" value="2301" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -55,20 +55,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Test/todo-spec.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+            <state relative-caret-position="170">
+              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Test/mainpage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="56" column="37" lean-forward="true" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+            <state relative-caret-position="1207">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -111,8 +111,8 @@
         <option value="$PROJECT_DIR$/.idea/mainpage.js" />
         <option value="$PROJECT_DIR$/protractor.conf.js" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/Test/todo-spec.js" />
         <option value="$PROJECT_DIR$/Test/mainpage.js" />
+        <option value="$PROJECT_DIR$/Test/todo-spec.js" />
       </list>
     </option>
   </component>
@@ -129,8 +129,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1823" />
-    <option name="y" value="-69" />
+    <option name="x" value="-1824" />
+    <option name="y" value="-70" />
     <option name="width" value="1710" />
     <option name="height" value="1660" />
   </component>
@@ -142,7 +142,6 @@
     <panes>
       <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,6 +163,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -276,23 +276,12 @@
       <workItem from="1540404182883" duration="25051000" />
       <workItem from="1540562470152" duration="5111000" />
       <workItem from="1540570918224" duration="707000" />
-      <workItem from="1540904667143" duration="6277000" />
+      <workItem from="1540904667143" duration="6736000" />
+      <workItem from="1541007992588" duration="1928000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Test1 - 2018.10.26 at 10h 25m 03s.xml">
-      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
-    </history-entry>
-    <history-entry file="Test1 - 2018.10.30 at 07h 06m 36s.xml">
-      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
-    </history-entry>
-    <history-entry file="Test1 - 2018.10.30 at 09h 07m 14s.xml">
-      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
-    </history-entry>
-    <history-entry file="Test1 - 2018.10.30 at 10h 05m 48s.xml">
-      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
-    </history-entry>
     <history-entry file="Test1 - 2018.10.30 at 11h 02m 01s.xml">
       <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
     </history-entry>
@@ -311,15 +300,27 @@
     <history-entry file="Test1 - 2018.10.30 at 13h 33m 12s.xml">
       <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
     </history-entry>
+    <history-entry file="Test1 - 2018.10.30 at 13h 39m 32s.xml">
+      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
+    </history-entry>
+    <history-entry file="Test1 - 2018.10.30 at 13h 43m 49s.xml">
+      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
+    </history-entry>
+    <history-entry file="Test1 - 2018.10.31 at 12h 09m 04s.xml">
+      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
+    </history-entry>
+    <history-entry file="Test1 - 2018.10.31 at 15h 09m 53s.xml">
+      <configuration name="Test1" configurationId="JavaScriptTestRunnerProtractor" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122655000" />
+    <option name="totallyTimeSpent" value="125042000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2226" y="-92" width="1368" height="1328" extended-state="0" />
+    <frame x="-2227" y="-93" width="1368" height="1328" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19036697" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19342507" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -373,20 +374,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Test/todo-spec.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Test/mainpage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="56" column="37" lean-forward="true" selection-start-line="56" selection-start-column="37" selection-end-line="56" selection-end-column="37" />
+        <state relative-caret-position="1207">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test/todo-spec.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
